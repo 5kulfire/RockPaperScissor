@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 1 for Rishabh Singh</title>
+  </head>
+  <body style="text-align: center; background: rgba(231,200,150,0.6);">
+<h1>Welcome to the game of Rock, Paper and Scissor!</h1>
+<input type="button" value="Let's Play!" onclick="game()">
+<hr><button type="button" onclick="window.location='index.html'">Go to main page</button>
+
+<script>
+  function game(){
+    var uscore=0;
+    var cscore=0;
+    var ch=0;
+    do{
+        do{
+            ch=1;
+            var userchoice= prompt("Enter 1 for rock, 2 for paper and 3 for scissor: ");
+            if(userchoice==1){
+                userchoice="rock";
+              }
+              else if(userchoice==2){
+                userchoice="paper";
+              }
+              else if(userchoice==3){
+                userchoice="scissor";
+              }
+              else{
+                alert("Invalid choice! Try again!");
+                ch=0;
+              }
+            }while(ch==0);
+        var cchoice= Math.floor(Math.random()*3)+1;
+        if(cchoice==1){
+            chchoice="rock";
+          }
+        else if(cchoice==2){
+            cchoice="paper";
+          }
+        else{
+            cchoice="scissor";
+          }
+        if(userchoice===cchoice){
+            alert("\t Its a tie.\n  User: "+uscore+"  Computer: "+cscore);
+          }
+        else{
+          if(userchoice==="rock"){
+            if(cchoice==="paper"){
+              cscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t   Computer wins!  \n\t\t User:"+uscore+"  Computer:"+cscore);
+            }
+            else if(cchoice==="scissor"){
+              uscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t   User wins!  \n\t\t User:"+uscore+"  Computer:"+cscore);
+            }
+          }
+          else if(userchoice==="paper"){
+            if(cchoice==="scissor"){
+              cscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t    Computer wins!  \n\t\t User:"+uscore+"  Computer:"+cscore);
+            }
+            else if(cchoice==="rock"){
+              uscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t   User wins!  \n\t\t User:"+uscore+"  Computer:"+cscore);
+            }
+          }
+          else if(userchoice==="scissor"){
+            if(cchoice==="rock"){
+              cscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t   Computer wins!  \n\t\tUser:"+uscore+"  Computer:"+cscore);
+            }
+          else if(cchoice==="paper"){
+              uscore++;
+              alert("User choice:"+userchoice+"  Computer choice: "+cchoice+"\n\t\t   User wins!  \n\t\t User:"+uscore+"  Computer:"+cscore);
+            }
+          }
+        }
+          var cont= confirm("Do you want to continue?");
+          if(cont==false){
+            if(uscore==cscore){
+              alert("Final score is::  User: "+uscore+"  Computer: "+cscore+"\n\t\t Game draw!");
+            }
+            else if(uscore>cscore){
+            alert("Final score is::  User: "+uscore+"  Computer: "+cscore+"\n\t\t User wins!");
+            }
+            else{
+              alert("Final score is::  User: "+uscore+"  Computer: "+cscore+"\n\t\t Computer wins!");
+            }
+          }
+      }while(cont==true);
+  }
+</script>
+  </body>
+</html>
